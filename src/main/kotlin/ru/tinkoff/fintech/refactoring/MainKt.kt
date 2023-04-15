@@ -1,8 +1,19 @@
 package ru.tinkoff.fintech.refactoring
 
+import ru.tinkoff.fintech.refactoring.OrderType.COFFEE
+import ru.tinkoff.fintech.refactoring.OrderType.PIZZA
+
 fun main() {
-    val pizzaStore = PizzaStore()
-    val pizzaOrder = pizzaStore.orderPizza("карбонара")
-    val coffeeOrder = pizzaStore.orderCoffee("эспрессо")
-    pizzaStore.executeOrder(pizzaOrder, coffeeOrder)
+
+    val pizzaCafe = PizzaCafe()
+
+    val order = setOf(
+        PIZZA to "карбонара",
+        PIZZA to "сардиния",
+        COFFEE to "эспрессо",
+        COFFEE to "эспрессо".reversed(),
+    )
+
+    pizzaCafe.executeOrders(order)
+
 }
